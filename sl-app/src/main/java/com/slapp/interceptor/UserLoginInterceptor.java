@@ -31,7 +31,7 @@ public class UserLoginInterceptor implements HandlerInterceptor {
 			HttpServletResponse response, Object arg2) throws Exception {
 		Object object = request.getSession().getAttribute("userInfo");
 		if (object == null) {
-			response.sendRedirect("/slapp/login");
+			response.sendRedirect("/toLogin");
 			return false;
 		}
 		return true;

@@ -20,10 +20,10 @@
 	<!-- Spring MVC配置 -->
 	<context:annotation-config />
 	<!--扫描注解 -->
-	<context:component-scan base-package="com.slapp.web.controller" />
+	<context:component-scan base-package="com.slapp.controller" />
 	<!--默认的mvc注解映射的支持 -->
 	<mvc:annotation-driven />
-	<mvc:view-controller path="/" view-name="redirect:/login" />
+	<mvc:view-controller path="/" view-name="redirect:/toLogin" />
 
 	<!-- 拦截器 -->
 	<mvc:interceptors>
@@ -31,8 +31,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/index" /><!-- 如果不配置或/*,将拦截所有的Controller -->
 			<mvc:mapping path="/sys/*" />
-			<mvc:exclude-mapping path="/login" />
-			<mvc:exclude-mapping path="/checkUser" />
+			<mvc:exclude-mapping path="/toLogin" />
 			<bean class="com.slapp.interceptor.UserLoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
@@ -72,20 +71,6 @@
 		<property name="maxUploadSize" value="-1" />
 	</bean>
 
-	<!-- 总错误处理 -->
-	<bean id="exceptionResolver"
-		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<property name="defaultErrorView">
-			<value>/error</value>
-		</property>
-		<property name="defaultStatusCode">
-			<value>500</value>
-		</property>
-		<property name="warnLogCategory">
-			<value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver
-			</value>
-		</property>
-	</bean>
 
 	<!-- 对静态资源文件的访问 -->
 	<mvc:resources mapping="/images/**" location="/images/"
