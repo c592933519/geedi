@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Geedi --Login</title>
+<title>Geedi --登录</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -60,15 +60,15 @@
 			<div id="login-content" class="clearfix">
 				<fieldset>
 					<div class="control-group">
-						<label class="control-label" for="username">Username</label>
+						<label class="control-label" for="username">用户名</label>
 						<div class="controls">
-							<input type="text" class="" id="username" name="username" />
+							<input type="text" maxlength="20" class="" id="username" name="username" />
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="password">Password</label>
+						<label class="control-label" for="password">密码</label>
 						<div class="controls">
-							<input type="password" class="" id="password" name="password" />
+							<input type="password" maxlength="30" class="" id="password" name="password" />
 						</div>
 					</div>
 				</fieldset>
@@ -90,7 +90,7 @@
 		<div id="login-extra">
 
 			<p>
-				Don't have an account? <a href="javascript:;">Sign Up.</a>
+				Don't have an account? <a href="signUp">Sign Up.</a>
 			</p>
 
 			<p>
