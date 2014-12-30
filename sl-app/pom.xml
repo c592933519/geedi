@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sl.apps</groupId>
-	<artifactId>sl-app</artifactId>
+	<artifactId>geedi</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sl-app Maven Webapp</name>
+	<name>geedi Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<org.codehaus.jackson.version>1.9.13</org.codehaus.jackson.version>
@@ -217,7 +217,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>sl-app</finalName>
+		<finalName>geedi</finalName>
 		<plugins>
 			<!-- 跳过单元测试 -->
 			<plugin>
@@ -246,7 +246,7 @@
 					<scanIntervalSeconds>1</scanIntervalSeconds>
 					<contextXml>${project.basedir}/src/test/resources/jetty-context.xml</contextXml>
 					<webApp>
-						<contextPath>/slapp</contextPath>
+						<contextPath>/geedi</contextPath>
 					</webApp>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">

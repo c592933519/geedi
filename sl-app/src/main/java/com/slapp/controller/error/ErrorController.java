@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ErrorController {
 	@RequestMapping(value = "/notFound")
 	public String notFound() {
-		System.out.println(".........");
 		return "error/notFound";
 	}
 }
