@@ -30,8 +30,9 @@ public class UserLoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object arg2) throws Exception {
 		Object object = request.getSession().getAttribute("user");
+		System.out.println(request.getRequestURI()+".."+object);
 		if (object == null) {
-			response.sendRedirect("toLogin");
+			response.sendRedirect("/geedi/toLogin");
 			return false;
 		}
 		return true;

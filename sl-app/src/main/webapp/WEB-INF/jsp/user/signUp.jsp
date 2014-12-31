@@ -56,7 +56,7 @@
 
 		</div>
 		<!-- /login-header -->
-		<form action="regiest" method="POST">
+		<form action="submitSignUp" method="POST" id="form1">
 			<div id="login-content" class="clearfix">
 				<fieldset>
 					<div class="control-group">
@@ -123,6 +123,7 @@
 	<script type="text/javascript">
 		function checkUser() {
 			if (checkUsername() && checkEmail() && checkPwd1() && checkPwd2()) {
+				$("#form1").submit();
 				return true;
 			} else {
 				return false;
@@ -143,15 +144,19 @@
 					$("#username").focus();
 				} else {
 
-					var reMsg = $.ajax({
+					var msg = $.ajax({
 						url : "checkUsername?username=" + username,
 						async : false
 					});
-					alert(reMsg);
-
-					$("#nameTip").html("");
-					$("#username").css("color", "green");
-					b = true;
+					var returnInfo = $.parseJSON(msg.responseText);
+					if (returnInfo.code == 0) {
+						$("#nameTip").html("");
+						$("#username").css("color", "green");
+						b = true;
+					} else {
+						$("#nameTip").html(returnInfo.msg);
+						$("#username").css("color", "red");
+					}
 				}
 			}
 			return b;
@@ -204,9 +209,19 @@
 				$("#email").css("color", "red");
 				$("#email").focus();
 			} else {
-				$("#emailTip").html("");
-				$("#email").css("color", "green");
-				b = true;
+				var msg = $.ajax({
+					url : "checkEmail?email=" + email,
+					async : false
+				});
+				var returnInfo = $.parseJSON(msg.responseText);
+				if (returnInfo.code == 0) {
+					$("#emailTip").html("");
+					$("#email").css("color", "green");
+					b = true;
+				} else {
+					$("#emailTip").html(returnInfo.msg);
+					$("#email").css("color", "red");
+				}
 			}
 			return b;
 		}

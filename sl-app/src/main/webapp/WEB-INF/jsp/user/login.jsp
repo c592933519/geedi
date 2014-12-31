@@ -60,15 +60,18 @@
 			<div id="login-content" class="clearfix">
 				<fieldset>
 					<div class="control-group">
-						<label class="control-label" for="username">用户名</label>
+						<label class="control-label" for="username">用户名<span
+							style="color: red">${msg }</span></label>
 						<div class="controls">
-							<input type="text" maxlength="20" class="" id="username" name="username" />
+							<input type="text" maxlength="20" class="" id="username"
+								name="username" />
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="password">密码</label>
 						<div class="controls">
-							<input type="password" maxlength="30" class="" id="password" name="password" />
+							<input type="password" maxlength="30" class="" id="password"
+								name="password" />
 						</div>
 					</div>
 				</fieldset>
@@ -79,8 +82,8 @@
 				</div>
 
 				<div class="pull-right">
-					<button type="submit" class="btn btn-warning btn-large">
-						Login</button>
+					<button type="button" onclick="check();"
+						class="btn btn-warning btn-large">Login</button>
 				</div>
 			</div>
 		</form>
@@ -109,9 +112,24 @@
 ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="js/jquery-1.7.2.min.js"></script>
-
-
 	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+	function check(){
+		var username=$("#username").val();
+		if (username=="") {
+			alert("用户名不能为空");
+			$("#username").focus();
+			return false;
+		}
+		var pwd=$("#password").val();
+		if (pwd=="") {
+			alert("密码不能为空");
+			$("#password").focus();
+			return false;
+		}
+		$("form").submit();
+		}
+	</script>
 
 </body>
 </html>

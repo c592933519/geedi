@@ -1,12 +1,15 @@
 package com.slapp.service;
 
+import com.slapp.pojo.ReturnInfo;
 import com.slapp.pojo.User;
 
+public interface IUserService {
 
-public interface IUserService{
-	
-	
-	 User getUser(User user) ;
+	User getUser(User user);
 
-	Boolean checkUsername(String username);
+	ReturnInfo checkUsername(String username);
+
+	ReturnInfo checkEmail(String email);
+
+	void saveUser(User user);
 }

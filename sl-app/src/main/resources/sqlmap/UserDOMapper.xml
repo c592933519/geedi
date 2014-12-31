@@ -6,16 +6,26 @@
 		<result column="password" property="password" jdbcType="VARCHAR" />
 		<result column="email" property="email" jdbcType="VARCHAR" />
 	</resultMap>
-	<select id="getUser" resultMap="user">
+	<select id="getUser" parameterType="com.slapp.pojo.User" resultMap="user">
 		select
 		username,password,email
-		from tbl_user where username=#{user.username}
+		from tbl_user where username=#{username}
 		and password
-		=#{user.password}
+		=#{password}
 	</select>
-	<select id="countUserByUsername" parameterType="java.lang.Integer">
+	<select id="countUser" resultType="java.lang.Integer">
 		select
 		count(1)
-		from tbl_user where username=#{username}
+		from tbl_user where
+		<if test="username!=null">
+			username=#{username}
+		</if>
+		<if test="email!=null">
+			email=#{email}
+		</if>
 	</select>
+	<insert id="saveUser">
+		insert into tbl_user
+		(username,password,email)values(#{username},#{password},#{email})
+	</insert>
 </mapper>

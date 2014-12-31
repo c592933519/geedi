@@ -10,4 +10,9 @@ public class ErrorController {
 	public String notFound() {
 		return "error/notFound";
 	}
+
+	@RequestMapping(value = "/error")
+	public String error() {
+		return "error/error";
+	}
 }

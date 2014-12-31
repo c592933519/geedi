@@ -8,19 +8,19 @@
 
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<LINK href="css/error/style.css" type=text/css rel=stylesheet>
+<LINK href="/geedi/css/error/style.css" type=text/css rel=stylesheet>
 
 </HEAD>
 
 <BODY>
 
 	<DIV id=container>
-		<IMG height=312 src="img/error/404.gif" width=512>
+		<IMG height=312 src="/geedi/img/error/404.gif" width=512>
 	</DIV>
 	<DIV id=maincolumn>
 
 		<DIV>
-			<A href="index" class="style1">回到首页...</A>
+			<A href="/geedi/index" class="style1">回到首页...</A>
 		</DIV>
 	</DIV>
 	<DIV>
