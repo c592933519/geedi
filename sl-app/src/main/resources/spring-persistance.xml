@@ -54,8 +54,14 @@
 		<property name="logAbandoned" value="true" />
 		<property name="filters" value="stat" />
 	</bean>
+	
 	<bean id="userDOMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-		<property name="mapperInterface" value="com.slapp.mapper.UserDOMapper" />
+		<property name="mapperInterface" value="com.geedi.mapper.UserDOMapper" />
 	</bean> 
+	
+	<bean id="mainDOMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="mapperInterface" value="com.geedi.mapper.MainDOMapper" />
+	</bean>
 </beans>

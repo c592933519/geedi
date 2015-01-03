@@ -21,7 +21,7 @@
 	<context:annotation-config />
 	<!--扫描注解 -->
 	<context:component-scan
-		base-package="com.slapp.service,com.slapp.mapper,com.slapp.controller" />
+		base-package="com.geedi.service,com.geedi.mapper,com.geedi.controller" />
 	<!--默认的mvc注解映射的支持 -->
 	<mvc:annotation-driven />
 	<mvc:view-controller path="/" view-name="redirect:/index" />
@@ -32,8 +32,8 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/index" /><!-- 如果不配置或/*,将拦截所有的Controller -->
 			<mvc:mapping path="/main/*" />
-			<mvc:exclude-mapping path="/toLogin" />
-			<bean class="com.slapp.interceptor.UserLoginInterceptor"></bean>
+			<mvc:exclude-mapping path="/login" />
+			<bean class="com.geedi.interceptor.UserLoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 

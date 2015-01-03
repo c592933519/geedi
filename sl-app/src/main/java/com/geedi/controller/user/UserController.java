@@ -1,4 +1,4 @@
-package com.slapp.controller.user;
+package com.geedi.controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.slapp.pojo.ReturnInfo;
-import com.slapp.pojo.User;
-import com.slapp.service.IUserService;
-import com.slapp.util.MD5Tool;
+import com.geedi.mapper.dao.User;
+import com.geedi.pojo.ReturnInfo;
+import com.geedi.service.IUserService;
+import com.geedi.util.MD5Tool;
 
 @Controller
 public class UserController {
@@ -19,7 +19,7 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 
-	@RequestMapping(value = "/toLogin")
+	@RequestMapping(value = "login")
 	public String toLogin() {
 		return "user/login";
 	}
@@ -41,7 +41,7 @@ public class UserController {
 		return userService.checkEmail(email);
 	}
 
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "/submitLogin")
 	public String login(String username, String password,
 			HttpServletRequest request) {
 		User user = new User();
@@ -53,7 +53,7 @@ public class UserController {
 		} else {
 			request.setAttribute("msg", "用户名或密码不正确");
 		}
-		return "forward:toLogin";
+		return "forward:login";
 	}
 
 	@RequestMapping(value = "/signUp")
@@ -76,6 +76,6 @@ public class UserController {
 	@RequestMapping(value = "/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:toLogin";
+		return "redirect:login";
 	}
 }

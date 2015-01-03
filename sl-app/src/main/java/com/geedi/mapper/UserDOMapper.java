@@ -1,8 +1,8 @@
-package com.slapp.mapper;
+package com.geedi.mapper;
 
 import java.util.Map;
 
-import com.slapp.pojo.User;
+import com.geedi.mapper.dao.User;
 
 public interface UserDOMapper {
 

@@ -256,7 +256,7 @@ input {
 .widget-content {
 	padding: 20px 15px 15px;
 	
-	background: #FFF;
+	background: #dddddd;
 	
 	
 	border: 1px solid #D5D5D5;
@@ -265,6 +265,7 @@ input {
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 }
+
 
 .widget-header+.widget-content {
 	border-top: none;
