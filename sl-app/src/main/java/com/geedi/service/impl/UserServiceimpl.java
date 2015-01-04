@@ -58,4 +58,13 @@ public class UserServiceimpl implements IUserService {
 	public void saveUser(User user) {
 		userDOMapper.saveUser(user);
 	}
+
+	@Override
+	public void submitFpwd(User user) {
+		// update user to getEmail
+		user = getUser(user);
+		if (user != null) {
+			
+		}
+	}
 }

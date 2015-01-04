@@ -52,7 +52,7 @@
 
 		<div id="login-header">
 
-			<h3>注册</h3>
+			<h3>欢迎注册Geedi账号</h3>
 
 		</div>
 		<!-- /login-header -->
@@ -84,7 +84,7 @@
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="email">邮箱<span
+						<label class="control-label" for="email">邮箱(<span style="color:blue">找回密码用</span>)<span
 							id="emailTip" style="color: red"></span></label>
 						<div class="controls">
 							<input type="text" maxlength="30" id="email" name="email" />
@@ -105,11 +105,11 @@
 		<div id="login-extra">
 
 			<p>
-				已有账号? <a href="login">Login.</a>
+				已有Geedi账号? <a href="/geedi/login">登录</a>
 			</p>
 
 			<p>
-				忘记密码? <a href="forgot_password.html">Retrieve.</a>
+				忘记密码? <a href="/geedi/fpwd">找回密码</a>
 			</p>
 
 		</div>

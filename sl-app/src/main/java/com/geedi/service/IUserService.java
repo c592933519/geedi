@@ -12,4 +12,6 @@ public interface IUserService {
 	ReturnInfo checkEmail(String email);
 
 	void saveUser(User user);
+
+	void submitFpwd(User user);
 }

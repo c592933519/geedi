@@ -13,8 +13,10 @@
 		username,password,email
 		from tbl_user where
 		username=#{username}
-		and password
-		=#{password}
+		<if test="password!=null">
+			and password
+			=#{password}
+		</if>
 	</select>
 	<select id="countUser" resultType="java.lang.Integer">
 		select

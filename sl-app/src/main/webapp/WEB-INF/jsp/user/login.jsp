@@ -51,7 +51,7 @@
 
 		<div id="login-header">
 
-			<h3>Login</h3>
+			<h3>欢迎使用Geedi</h3>
 
 		</div>
 		<!-- /login-header -->
@@ -77,12 +77,12 @@
 
 				<div id="remember-me" class="pull-left">
 					<input type="checkbox" name="remember" id="remember" /> <label
-						id="remember-label" for="remember">Remember Me</label>
+						id="remember-label" for="remember">下次自动登录</label>
 				</div>
 
 				<div class="pull-right">
 					<button type="button" onclick="check();"
-						class="btn btn-warning btn-large">Login</button>
+						class="btn btn-warning btn-large">登录</button>
 				</div>
 			</div>
 		</form>
@@ -92,11 +92,11 @@
 		<div id="login-extra">
 
 			<p>
-				Don't have an account? <a href="signUp">Sign Up.</a>
+				没有Geedi账号? <a href="signUp">马上注册</a>
 			</p>
 
 			<p>
-				Remind Password? <a href="forgot_password.html">Retrieve.</a>
+				忘记密码? <a href="/geedi/fpwd">找回密码</a>
 			</p>
 
 		</div>
@@ -113,20 +113,20 @@
 	<script src="js/jquery-1.7.2.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script type="text/javascript">
-	function check(){
-		var username=$("#username").val();
-		if (username=="") {
-			alert("用户名不能为空");
-			$("#username").focus();
-			return false;
-		}
-		var pwd=$("#password").val();
-		if (pwd=="") {
-			alert("密码不能为空");
-			$("#password").focus();
-			return false;
-		}
-		$("form").submit();
+		function check() {
+			var username = $("#username").val();
+			if (username == "") {
+				alert("用户名不能为空");
+				$("#username").focus();
+				return false;
+			}
+			var pwd = $("#password").val();
+			if (pwd == "") {
+				alert("密码不能为空");
+				$("#password").focus();
+				return false;
+			}
+			$("form").submit();
 		}
 	</script>
 

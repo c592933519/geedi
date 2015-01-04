@@ -24,6 +24,11 @@ public class UserController {
 		return "user/login";
 	}
 
+	@RequestMapping(value = "fpwd")
+	public String fpwd() {
+		return "user/fpwd";
+	}
+
 	@RequestMapping(value = "/index")
 	public String index() {
 		return "main/index";
@@ -70,6 +75,14 @@ public class UserController {
 		user.setEmail(email);
 		userService.saveUser(user);
 		session.setAttribute("user", user);
+		return "redirect:index";
+	}
+
+	@RequestMapping(value = "/submitFpwd")
+	public String submitFpwd(String username, HttpSession session) {
+		User user = new User();
+		user.setUsername(username);
+		userService.submitFpwd(user);
 		return "redirect:index";
 	}
 
