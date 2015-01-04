@@ -4,6 +4,7 @@ public class TaskBoard {
 	private int id;
 	private String title;
 	private int taskSetId;
+	private int userId;
 
 	public int getId() {
 		return id;
@@ -30,5 +31,14 @@ public class TaskBoard {
 	public void setTaskSetId(int taskSetId) {
 		this.taskSetId = taskSetId;
 	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
 
 }

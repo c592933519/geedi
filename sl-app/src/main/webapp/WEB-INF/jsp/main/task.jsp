@@ -17,7 +17,7 @@
 <link href="/geedi/css/pages/dashboard.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-<body>
+<body onload="loadData();">
 	<jsp:include page="../common/top.jsp"></jsp:include>
 	<div id="content">
 
@@ -35,15 +35,20 @@
 				<div class="span3">
 
 					<div class="widget">
-						<div class="widget-content">
+						<div class="widget-content" id="pendingDiv">
 							<h3 style="color: #7d7dff">待处理任务列表</h3>
-							<div class="well">
-								<span data-toggle="modal" data-target="#myModal">点击创建待处理任务</span>
-								<a href="javascript:;" style="float: right"
-									class="btn btn-small btn-success"> <i
-									class="icon-arrow-right"></i>
-								</a>
+							<div class="well" style="width: 75%">
+								<p style="word-wrap: break-word;" data-toggle="modal"
+									data-target="#myModal">点击创建待处理任务</p>
+
+								<div
+									style="align: center; float: right; position: relative; right: -30%; bottom: 25px">
+									<a href="javascript:;" class="btn btn-small btn-success "> <i
+										class="icon-arrow-right"></i>
+									</a>
+								</div>
 							</div>
+
 						</div>
 						<!-- /widget-content -->
 
@@ -143,6 +148,13 @@
 	<jsp:include page="../common/js.jsp"></jsp:include>
 	<script type="text/javascript">
 		$("#taskBoard").attr('class', 'active');
+
+		function loadData() {
+			createPendingDiv();
+		}
+		function createPendingDiv() {
+			$("#pendingDiv").prepend();
+		}
 	</script>
 
 </body>

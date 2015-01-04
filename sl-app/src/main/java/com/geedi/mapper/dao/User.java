@@ -1,9 +1,18 @@
 package com.geedi.mapper.dao;
 
 public class User {
+	private int userId;
 	private String username;
 	private String password;
 	private String email;
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	public String getUsername() {
 		return username;
