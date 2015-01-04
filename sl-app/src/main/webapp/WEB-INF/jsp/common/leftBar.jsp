@@ -4,12 +4,16 @@
 
 	<ul id="main-nav" class="nav nav-tabs nav-stacked">
 
-		<li id="task"><a href="/geedi/index"> <i
-				class="icon-info-sign icon-white"></i> 任务
+		<li id="index"><a href="/geedi/index"><i class="icon-home"></i>
+				Dashboard </a></li>
+
+
+		<li id="taskBoard"><a href="/geedi/main/taskBoard"> <i
+				class="icon-info-sign icon-white"></i> 任务板
 		</a></li>
 
-		<li id="taskSet"><a href="/geedi/main/taskSet"> <i class="icon-th-large"></i>
-				任务集
+		<li id="taskSet"><a href="/geedi/main/taskSet"> <i
+				class="icon-th-large"></i> 任务集
 		</a></li>
 
 		<li><a href="faq.html"> <i class="icon-pushpin"></i> FAQ

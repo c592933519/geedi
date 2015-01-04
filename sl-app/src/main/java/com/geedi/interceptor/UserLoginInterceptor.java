@@ -1,4 +1,4 @@
-package com.slapp.interceptor;
+package com.geedi.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,9 +30,9 @@ public class UserLoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object arg2) throws Exception {
 		Object object = request.getSession().getAttribute("user");
-		System.out.println(request.getRequestURI()+".."+object);
+		System.out.println(request.getRequestURI() + ".." + object);
 		if (object == null) {
-			response.sendRedirect("/geedi/toLogin");
+			response.sendRedirect("/geedi/login");
 			return false;
 		}
 		return true;

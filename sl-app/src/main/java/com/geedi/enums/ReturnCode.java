@@ -1,4 +1,4 @@
-package com.slapp.enums;
+package com.geedi.enums;
 
 public enum ReturnCode {
 	SUCCESS, FAIL;

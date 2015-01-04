@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.geedi.mapper.MainDOMapper">
+	<resultMap id="taskBoard" type="com.geedi.mapper.dao.TaskBoard">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="taskset_id" property="taskSetId" jdbcType="INTEGER" />
+	</resultMap>
+	<resultMap id="taskSet" type="com.geedi.mapper.dao.TaskSet">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="taskset_name" property="taskSetName" jdbcType="VARCHAR" />
+		<result column="summary" property="summary" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<insert id="saveTaskBoard">
+		insert into tbl_taskboard
+		(title,taskset_id)values(#{title},#{taskSetId})
+	</insert>
+	<select id="getTaskBoards" resultMap="taskBoard">
+		select id,title,taskset_id
+		from
+		tbl_taskboard where taskset_id=#{taskSetId} order by
+		update_time
+	</select>
+	<insert id="saveTaskSet">
+		insert into tbl_taskset
+		(taskset_name,summary)values(#{taskSetName},#{summary})
+	</insert>
+	<select id="getTaskSets" resultMap="taskSet">
+		select id,
+		taskset_name,summary
+		from
+		tbl_taskset order by
+		update_time
+	</select>
+</mapper>

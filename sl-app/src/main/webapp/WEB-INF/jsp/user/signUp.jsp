@@ -105,7 +105,7 @@
 		<div id="login-extra">
 
 			<p>
-				已有账号? <a href="signUp">Login.</a>
+				已有账号? <a href="login">Login.</a>
 			</p>
 
 			<p>

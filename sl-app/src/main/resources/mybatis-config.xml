@@ -29,5 +29,6 @@
 	<mappers>
 		<!-- 显式指定mapper配置文件写这里 采用与SqlMapper同名，并且放在同一个包下，可以自动配置，所以这里不写了 -->
 		<mapper resource="sqlmap/UserDOMapper.xml" />
+		<mapper resource="sqlmap/MainDOMapper.xml" />
 	</mappers>
 </configuration>

@@ -1,4 +1,4 @@
-package com.slapp.pojo;
+package com.geedi.mapper.dao;
 
 public class User {
 	private String username;

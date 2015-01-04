@@ -22,7 +22,6 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-
 <body>
 
 	<div class="navbar navbar-fixed-top">
@@ -56,7 +55,7 @@
 
 		</div>
 		<!-- /login-header -->
-		<form action="login" method="POST">
+		<form action="submitLogin" method="POST">
 			<div id="login-content" class="clearfix">
 				<fieldset>
 					<div class="control-group">
