@@ -11,6 +11,8 @@ public interface UserDOMapper {
 	int countUser(Map<String, String> paramMap);
 
 	void saveUser(User user);
+
+	void updateTokenInUser(Map<String, Object> paramMap);
 	
 }
 

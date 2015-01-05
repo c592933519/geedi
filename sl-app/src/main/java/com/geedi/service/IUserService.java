@@ -1,5 +1,7 @@
 package com.geedi.service;
 
+import javax.mail.MessagingException;
+
 import com.geedi.mapper.dao.User;
 import com.geedi.pojo.ReturnInfo;
 
@@ -13,5 +15,5 @@ public interface IUserService {
 
 	void saveUser(User user);
 
-	void submitFpwd(User user);
+	void submitFpwd(User user) throws MessagingException;
 }

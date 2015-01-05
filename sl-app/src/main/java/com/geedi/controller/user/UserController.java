@@ -1,5 +1,6 @@
 package com.geedi.controller.user;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -79,7 +80,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/submitFpwd")
-	public String submitFpwd(String username, HttpSession session) {
+	public String submitFpwd(String username, HttpSession session) throws MessagingException {
 		User user = new User();
 		user.setUsername(username);
 		userService.submitFpwd(user);

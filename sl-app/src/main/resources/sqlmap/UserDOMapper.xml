@@ -33,4 +33,8 @@
 		insert into tbl_user
 		(username,password,email)values(#{username},#{password},#{email})
 	</insert>
+	<update id="updateTokenInUser">
+	    update tbl_user set token=#{token} where id=#{userId}
+	    
+	</update>
 </mapper>
