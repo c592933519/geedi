@@ -22,7 +22,10 @@
 	<!-- 注意:这里的参数(如用户名、密码)都是针对邮件发送者的 -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host">
-			<value>stmp.163.com</value>
+			<value>smtp.sina.cn</value>
+		</property>
+		<property name="port">
+			<value>25</value>
 		</property>
 		<property name="javaMailProperties">
 			<props>
@@ -31,7 +34,7 @@
 			</props>
 		</property>
 		<property name="username">
-			<value>geedi_support@163.com</value>
+			<value>geedi_support@sina.cn</value>
 		</property>
 		<property name="password">
 			<value>geedi@123</value>

@@ -15,5 +15,8 @@ public interface IUserService {
 
 	void saveUser(User user);
 
-	void submitFpwd(User user) throws MessagingException;
+	boolean submitFpwd(User user) throws MessagingException;
+
+
+	void updatePwdAndRestTokenInUser(User user);
 }

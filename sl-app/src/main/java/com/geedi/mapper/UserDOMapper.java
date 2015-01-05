@@ -13,6 +13,9 @@ public interface UserDOMapper {
 	void saveUser(User user);
 
 	void updateTokenInUser(Map<String, Object> paramMap);
+
+
+	void updatePwdAndRestTokenInUser(User user);
 	
 }
 

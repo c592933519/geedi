@@ -84,8 +84,9 @@
 					</div>
 
 					<div class="control-group">
-						<label class="control-label" for="email">邮箱(<span style="color:blue">找回密码用</span>)<span
-							id="emailTip" style="color: red"></span></label>
+						<label class="control-label" for="email">邮箱(<span
+							style="color: blue">找回密码用</span>)<span id="emailTip"
+							style="color: red"></span></label>
 						<div class="controls">
 							<input type="text" maxlength="30" id="email" name="email" />
 						</div>
@@ -169,12 +170,10 @@
 			if (pwd1.length < 6) {
 				$("#pas1Tip").html("长度需大于6");
 				$("#password1").css("color", "red");
-				$("#password1").focus();
 			} else {
 				if (!/^[A-Za-z0-9_-]+$/.test(pwd1)) {
 					$("#pas1Tip").html("只能为英文或者数字");
 					$("#password1").css("color", "red");
-					$("#password1").focus();
 				} else {
 					$("#pas1Tip").html("");
 					$("#password1").css("color", "green");
@@ -191,7 +190,6 @@
 			if (pwd1 != pwd2) {
 				$("#pas2Tip").html("密码不一致");
 				$("#password2").css("color", "red");
-				$("#password2").focus();
 			} else {
 				$("#pas2Tip").html("");
 				$("#password2").css("color", "green");

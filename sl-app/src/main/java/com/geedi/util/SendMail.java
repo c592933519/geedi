@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
-import org.apache.log4j.Logger;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -18,7 +17,6 @@ import org.springframework.mail.javamail.MimeMessageHelper;
  *
  */
 public class SendMail {
-	private static final Logger LOGGER = Logger.getLogger(SendMail.class);
 	private MailSender mailSender;
 
 	public SendMail(MailSender mailSender) {
@@ -43,7 +41,7 @@ public class SendMail {
 			messageHelper.setText(
 					formatContent(
 							MailConstantUtil.INSTANCE.getFpwdMailContent(),
-							rMap), true);
+							rMap), false);
 			((JavaMailSender) mailSender).send(mailMessage);
 	}
 

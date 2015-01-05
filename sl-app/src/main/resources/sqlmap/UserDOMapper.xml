@@ -6,11 +6,13 @@
 		<result column="username" property="username" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />
 		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="token" property="token" jdbcType="VARCHAR" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
 	</resultMap>
 	<select id="getUser" parameterType="com.geedi.mapper.dao.User"
 		resultMap="user">
 		select id,
-		username,password,email
+		username,password,email,token,update_time
 		from tbl_user where
 		username=#{username}
 		<if test="password!=null">
@@ -34,7 +36,11 @@
 		(username,password,email)values(#{username},#{password},#{email})
 	</insert>
 	<update id="updateTokenInUser">
-	    update tbl_user set token=#{token} where id=#{userId}
-	    
+		update tbl_user set token=#{token} where id=#{userId}
+	</update>
+
+	<update id="updatePwdAndRestTokenInUser">
+		update tbl_user set password=#{password} ,token='' 
+		where id=#{userId}
 	</update>
 </mapper>

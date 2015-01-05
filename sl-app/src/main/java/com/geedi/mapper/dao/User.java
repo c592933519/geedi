@@ -1,10 +1,14 @@
 package com.geedi.mapper.dao;
 
+import java.sql.Timestamp;
+
 public class User {
 	private int userId;
 	private String username;
 	private String password;
 	private String email;
+	private String token;
+	private Timestamp updateTime;
 
 	public int getUserId() {
 		return userId;
@@ -37,4 +41,21 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
+	}
+	
 }

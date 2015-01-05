@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Geedi --找回密码</title>
+<title>Geedi --重置密码</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,24 +51,33 @@
 
 		<div id="login-header">
 
-			<h3>找回密码</h3>
+			<h3>重置密码</h3>
 
 		</div>
 		<!-- /login-header -->
-		<form action="submitFpwd" method="POST">
+		<form action="submitRestPwd" method="POST">
 			<div id="login-content" class="clearfix">
 				<fieldset>
 					<div class="control-group">
-						<label class="control-label" for="username">用户名(<span
-							style="color: blue">密码将会发送至注册时邮箱</span>) <br> <span
-							style="color: red">${errmsg }</span> <span style="color: green">${succmsg }</span></label>
+						<label class="control-label" for="password">新密码<span
+							id="pas1Tip" style="color: red"></span></label>
 						<div class="controls">
-							<input type="text" maxlength="20" class="" id="username"
-								name="username" />
+							<input type="password" maxlength="30" class="" id="password1" />
 						</div>
 					</div>
 
+					<div class="control-group">
+						<label class="control-label" for="password">再次输入密码<span
+							id="pas2Tip" style="color: red"></span></label>
+						<div class="controls">
+							<input type="password" maxlength="30" class="" id="password2"
+								name="password" />
+						</div>
+					</div>
+					<input type="hidden" name="username" value="${username}" /> <input
+						type="hidden" name="token" value="${token}" />
 				</fieldset>
+
 				<div class="pull-right">
 					<button type="button" onclick="check();"
 						class="btn btn-warning btn-large">提交</button>
@@ -77,19 +86,6 @@
 		</form>
 		<!-- /login-content -->
 
-
-		<div id="login-extra">
-
-			<p>
-				已有Geedi账号? <a href="/geedi/login">登录</a>
-			</p>
-
-			<p>
-				没有Geedi账号? <a href="/geedi/signUp">注册</a>
-			</p>
-
-		</div>
-		<!-- /login-extra -->
 
 	</div>
 	<!-- /login-wrapper -->
@@ -103,14 +99,58 @@
 	<script src="js/bootstrap.js"></script>
 	<script type="text/javascript">
 		function check() {
-			var username = $("#username").val();
-			if (username == "") {
-				alert("用户名不能为空");
-				$("#username").focus();
-				return false;
+			if (checkPwd1() && checkPwd2()) {
+				$("form").submit();
 			}
-			$("form").submit();
 		}
+		function checkPwd1() {
+			var b = false;
+			$("#password1").css("border", "solid 1px");
+			var pwd1 = $("#password1").val();
+			if (pwd1.length < 6) {
+				$("#pas1Tip").html("长度需大于6");
+				$("#password1").css("color", "red");
+				$("#password1").focus();
+			} else {
+				if (!/^[A-Za-z0-9_-]+$/.test(pwd1)) {
+					$("#pas1Tip").html("只能为英文或者数字");
+					$("#password1").css("color", "red");
+				} else {
+					$("#pas1Tip").html("");
+					$("#password1").css("color", "green");
+					b = true;
+				}
+			}
+			return b;
+		}
+		function checkPwd2() {
+			var b = false;
+			$("#password2").css("border", "solid 1px");
+			var pwd1 = $("#password1").val();
+			var pwd2 = $("#password2").val();
+			if (pwd1 != pwd2) {
+				$("#pas2Tip").html("密码不一致");
+				$("#password2").css("color", "red");
+			} else {
+				$("#pas2Tip").html("");
+				$("#password2").css("color", "green");
+				b = true;
+			}
+			return b;
+		}
+
+		$(function() {
+			$("#password1").blur(function() {
+				checkPwd1();
+				if ($("#password2").val() != "") {
+					checkPwd2();
+				}
+			});
+			$("#password2").blur(function() {
+				checkPwd2();
+			});
+
+		})
 	</script>
 
 </body>

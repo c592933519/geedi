@@ -70,17 +70,19 @@ public class UserServiceimpl implements IUserService {
 	}
 
 	@Override
-	public void submitFpwd(User user) throws MessagingException {
+	public boolean submitFpwd(User user) throws MessagingException {
 		// update user to getEmail
+		boolean b = false;
 		user = getUser(user);
 		if (user != null) {
 			String toEmail = user.getEmail();
 			String username = user.getUsername();
 			String url = getFpwdUrl(username, user.getUserId());
-			SendMail sendMail=new SendMail(mailSender);
-			sendMail.sendFpwdMail(toEmail, username,url);
-			System.out.println("fpwd url..."+url);
+			SendMail sendMail = new SendMail(mailSender);
+			sendMail.sendFpwdMail(toEmail, username, url);
+			b = true;
 		}
+		return b;
 	}
 
 	private String getFpwdUrl(String username, int userId) {
@@ -98,5 +100,10 @@ public class UserServiceimpl implements IUserService {
 		paramMap.put("userId", userId);
 		userDOMapper.updateTokenInUser(paramMap);
 		return (String) paramMap.get("token");
+	}
+
+	@Override
+	public void updatePwdAndRestTokenInUser(User user) {
+		userDOMapper.updatePwdAndRestTokenInUser(user);
 	}
 }

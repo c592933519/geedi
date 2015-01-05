@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.geedi.mapper.dao.TaskBoard;
@@ -35,8 +36,8 @@ public class MainController {
 
 	@RequestMapping(value = "/newTaskBoard")
 	@ResponseBody
-	public ReturnInfo newTaskBoard(String title, int taskSetId,
-			HttpSession session) {
+	public ReturnInfo newTaskBoard(@RequestParam(required = true) String title,
+			@RequestParam(required = true) int taskSetId, HttpSession session) {
 		User user = getUser(session);
 		TaskBoard taskBoard = new TaskBoard();
 		taskBoard.setTitle(title);
@@ -52,14 +53,16 @@ public class MainController {
 
 	@RequestMapping(value = "/getTaskBoards")
 	@ResponseBody
-	public List<TaskBoard> getTaskBoards(int taskSetId) {
+	public List<TaskBoard> getTaskBoards(
+			@RequestParam(required = true) int taskSetId) {
 		return mainService.getTaskBoards(taskSetId);
 	}
 
 	@RequestMapping(value = "/newTaskSet")
 	@ResponseBody
-	public ReturnInfo newTaskSet(String taskSetName, String summary,
-			HttpSession session) {
+	public ReturnInfo newTaskSet(
+			@RequestParam(required = true) String taskSetName,
+			@RequestParam(required = false) String summary, HttpSession session) {
 		User user = getUser(session);
 		TaskSet taskSet = new TaskSet();
 		taskSet.setTaskSetName(taskSetName);
@@ -75,7 +78,9 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/task")
-	public String task(int taskBoardId, String title, HttpServletRequest request) {
+	public String task(@RequestParam(required = true) int taskBoardId,
+			@RequestParam(required = true) String title,
+			HttpServletRequest request) {
 		request.setAttribute("title", title);
 		return "main/task";
 	}
